@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+  <style>
+	p {
+	font-family: "PT Serif", serif;
+	font-weight: normal;
+	font-style: italic
+	}
+
+  a {
+    text-decoration: none;
+    color: black !important
+  }
+	.links {
+	color: black !important;
+	transition: all .5s
+	}
+
+	.links:hover {
+	font-weight: 900;
+	font-size: 1.2em
+	}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-content>
+        <v-container fluid>
+			       <v-toolbar class="elevation-0">
+               <v-toolbar-items>
+                 <v-btn flat v-for="btn in menuItem"><a :href="btn.btnLink">{{btn.itemName}}</a></v-btn>
+               </v-toolbar-items>
+             </v-toolbar>
+             <v-img src="Chrysanthemum.jpg" height="200px"></v-img>
+
+            <!-- sidebar -->
+             <v-layout>
+               <v-flex xs3>
+                 <v-layout column class="pa-5">
+
+						<v-flex>
+							<v-avatar size="150" class="mb-3">
+								<img src="Chrysanthemum.jpg" alt="avatar">
+							</v-avatar>
+						</v-flex>
+
+						<v-flex>
+							<h1>Milad<br>MMB</h1>
+						</v-flex>
+						<v-flex>
+							<p>I am master student at Amirkabir University of Technology. I research in the filed of big data analytics, data mining and machine learning with focus on Cluster Analysis.</p>
+						</v-flex>
+						<v-flex>
+
+						<v-layout class="links" class="d-block" v-for="x in social">
+							<v-flex xs2>
+								<v-icon class="">{{x.socialIcon}}</v-icon>
+							</v-flex>
+							<v-flex>
+								<p><a class="black--text" :href="x.socialTxt">{{x.socialTxtShow}}</a></p>
+							</v-flex>
+						</v-layout>
+						</v-flex>
+					</v-layout>
+				</v-flex>
+
+
+        <!-- page -->
+				<v-flex xs9 class="ml-3">
+					<h1>here!</h1>
+				</v-flex>
+
+
+			</v-layout>
+		</v-container>
+      </v-content>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+	el: '#app',
+	data: {
+
+    // menuItems
+		menuItem: [
+		{
+      itemName: 'Home',
+      btnLink: 'index.html'
+    },
+		{
+      itemName: 'CV',
+      btnLink: 'cv.html'
+    }
+  ],
+
+  // social
+  social: [
+    {
+      socialIcon: 'email',
+      socialTxt: 'mealadmmb@gmail.com',
+      socialTxtShow: 'Email me!'
+    },
+    {
+      socialIcon: 'send',
+      socialTxt: 'https://t.me/mealadmmb',
+      socialTxtShow: 'Telegram me!'
+    },
+  ],
+
+    // aboutMe
+    about: [
+      {
+        aboutIcon: 'university.png',
+        aboutTitle: 'title1',
+        aboutItems: '<li>text</li>' +
+                    '<li>text</li>' +
+                    '<li>text</li>'
+      },
+      {
+        aboutIcon: 'university.png',
+        aboutTitle: 'title2',
+        aboutItems: 'text'
+      },
+      {
+        aboutIcon: 'university.png',
+        aboutTitle: 'title3',
+        aboutItems: 'text'
+      },
+    ]
+	}
+
+	})
+  </script>
+</body>
+</html>
